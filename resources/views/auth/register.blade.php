@@ -11,7 +11,7 @@
                     Easygration
                 </a>
             </div>
-            <div class="w-full flex flex-col mt-10 pt-20">
+            <div class="w-full flex flex-col mt-5 pt-5">
                 <h2 class="font-bold text-4xl text-center pb-2">Vamos começar?</h2>
                 <p class="text-center text-gray-400 text-sm">Iniciar nessa jornada nunca foi tão fácil</p>
             </div>

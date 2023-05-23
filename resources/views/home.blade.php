@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="h-screen bg-contain bg-no-repeat bg-opacity-60 bg-[url('/resources/assets/images/landscapehome.jpg')]">
+    <div class="h-screen bg-cover bg-no-repeat bg-opacity-60 bg-[url('/resources/assets/images/landscapehome.jpg')]">
         <div class="h-screen bg-cover bg-black bg-opacity-40">
             <x-nav-bar textColor="white" logo="false" />
             <x-home-hero />

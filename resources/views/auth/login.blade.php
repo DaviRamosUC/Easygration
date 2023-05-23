@@ -14,7 +14,7 @@
                     Não tem uma conta? <a href="{{ route('register') }}" class="text-[#20DC49]">Cadastre-se</a>
                 </p>
             </div>
-            <div class="w-full flex flex-col mt-10 pt-20">
+            <div class="w-full flex flex-col mt-10 pt-10">
                 <h2 class="font-bold text-4xl text-center pb-2">Seja bem vindo novamente</h2>
                 <p class="text-center font-semibold text-xl">Realize o login em sua conta</p>
             </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="w-full flex flex-col justify-center items-center">
                 <div class="w-1/2">
-                    <form method="POST" action="{{ route('regist') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <!-- Email Address -->
