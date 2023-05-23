@@ -12,12 +12,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="">
-    <x-side-bar />
-    <!-- Page Content -->
-    <main>
-        {{ $slot }}
-    </main>
+<body>
+    <div>
+        <x-side-bar />
+        <!-- Page Content -->
+        <main class="p-4 sm:ml-64">
+            {{ $slot }}
+        </main>
+    </div>
 </body>
 
 </html>

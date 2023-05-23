@@ -164,7 +164,8 @@
             </li>
         </ul>
 
-        <div class="flex h-fit items-center pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+        <div
+            class="flex h-fit items-center pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="mr-2"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <circle cx="16" cy="16" r="15" fill="#C4C4C4" />
