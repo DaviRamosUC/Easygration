@@ -10,6 +10,9 @@
                         class="mr-3" />
                     Easygration
                 </a>
+                <p>
+                    Já tem uma conta? <a href="{{ route('login') }}" class="text-[#20DC49]">Entre!</a>
+                </p>
             </div>
             <div class="w-full flex flex-col mt-5 pt-5">
                 <h2 class="font-bold text-4xl text-center pb-2">Vamos começar?</h2>
@@ -103,14 +106,9 @@
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>
 
-                        <div class="flex items-center justify-end mt-4">
-                            <a class="underline text-sm text-[#D93F21] dark:text-gray-400 hover:text-[#D93F21] dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                                href="{{ route('login') }}">
-                                {{ __('Já está cadastrado?') }}
-                            </a>
-
-                            <x-primary-button class="ml-4">
-                                {{ __('Register') }}
+                        <div class="w-full flex justify-center mt-5">
+                           <x-primary-button class="w-full flex justify-center">
+                                {{ __('Criar minha conta!') }}
                             </x-primary-button>
                         </div>
                     </form>

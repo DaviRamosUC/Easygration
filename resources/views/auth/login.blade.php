@@ -73,7 +73,7 @@
             </div>
             <div class="w-full flex flex-col justify-center items-center">
                 <div class="w-1/2">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <!-- Email Address -->
