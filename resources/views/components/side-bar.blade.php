@@ -180,7 +180,7 @@
                 </defs>
             </svg>
             <div>
-                <p class="">Davi Ramos Lima</p>
+                <p class="">{{ $user->name }}</p>
                 <p id="status" class="text-[#12B347]">Online</p>
             </div>
         </div>

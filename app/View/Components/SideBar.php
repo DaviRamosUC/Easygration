@@ -26,6 +26,6 @@ class SideBar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.side-bar');
+        return view('components.side-bar')->with('user', auth()->user());
     }
 }
