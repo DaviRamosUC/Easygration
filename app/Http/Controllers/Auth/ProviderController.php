@@ -18,15 +18,19 @@ class ProviderController extends Controller
     public function callback($provider)
     {
         $socialUser = Socialite::driver($provider)->user();
-                
-        $user = User::updateOrCreate([
-            'provider_id' => $socialUser->id,
-            'provider' => $provider,
-        ], [
-            'name' => $socialUser->name,
-            'email' => $socialUser->email,
-            'provider_token' => $socialUser->token,
-        ]);
+         
+        $user = User::where('email', $socialUser->email)->first();
+
+        if(!isset($user) || empty($user)){
+            $user = User::updateOrCreate([
+                'provider_id' => $socialUser->id,
+                'provider' => $provider,
+            ], [
+                'name' => $socialUser->name,
+                'email' => $socialUser->email,
+                'provider_token' => $socialUser->token,
+            ]);
+        }
 
         Auth::login($user);
  
