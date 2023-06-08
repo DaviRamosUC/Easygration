@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\ProviderController;
+use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,12 @@ Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback'])
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::controller(PropertiesController::class)->group(function () {
+    Route::get('/imoveis', 'index');
+    Route::get('/imovel/{id}', 'show');
+    Route::post('/imovel', 'store');
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

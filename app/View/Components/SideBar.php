@@ -18,7 +18,7 @@ class SideBar extends Component
      */
     public function __construct()
     {
-        $this->currentRouteName = Request::route()->getName();
+            $this->currentRouteName = '';
     }
 
     /**
