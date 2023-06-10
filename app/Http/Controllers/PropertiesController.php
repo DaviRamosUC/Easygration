@@ -14,6 +14,27 @@ class PropertiesController extends Controller
     public function index()
     {
         $properties = Properties::all();
+        foreach ($properties as $propertie) {
+            switch ($propertie->tipo) {
+                case 'Casa':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80';
+                    break;
+                case 'Apartamento':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1530966449884-b130ce445fb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                    break;
+                case 'SÃ­tio':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1569370029941-4a26ad1acaa0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                    break;
+                case 'Kitnet':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=780&q=80';
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+            if ($propertie->tipo == 'Casa') {
+            }
+        }
         return view('properties.index', compact('properties'));
     }
 
@@ -44,7 +65,7 @@ class PropertiesController extends Controller
         $imovel->aceita_pets = $request->input('aceita_pets');
         $imovel->save();
 
-        return redirect()->route('properties.index')->with('success', 'Imóvel criado com sucesso!');
+        return redirect()->route('properties.index')->with('success', 'Imï¿½vel criado com sucesso!');
     }
 
     /**
@@ -81,7 +102,7 @@ class PropertiesController extends Controller
         $properties->aceita_pets = $request->input('aceita_pets');
         $properties->save();
 
-        return redirect()->route('properties.index')->with('success', 'Imóvel atualizado com sucesso!');
+        return redirect()->route('properties.index')->with('success', 'Imï¿½vel atualizado com sucesso!');
     }
 
     /**
@@ -90,6 +111,6 @@ class PropertiesController extends Controller
     public function destroy(Properties $properties)
     {
         $properties->delete();
-        return redirect()->route('properties.index')->with('success', 'Imóvel excluído com sucesso!');
+        return redirect()->route('properties.index')->with('success', 'Imï¿½vel excluï¿½do com sucesso!');
     }
 }

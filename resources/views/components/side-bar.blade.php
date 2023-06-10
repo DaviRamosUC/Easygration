@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('imoveis') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -64,13 +64,27 @@
             <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.9">
+                            <path
+                                d="M19 5V7H15V5H19ZM9 5V11H5V5H9ZM19 13V19H15V13H19ZM9 17V19H5V17H9ZM21 3H13V9H21V3ZM11 3H3V13H11V3ZM21 11H13V21H21V11ZM11 15H3V21H11V15Z"
+                                fill="#A8B0B9" />
+                        </g>
+                    </svg>
+                    <span class="flex-1 ml-3 whitespace-nowrap"> Meus imóveis </span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('imoveis') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <svg width="18" height="22" viewBox="0 0 18 22" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9 0L0 4V10C0 15.55 3.84 20.74 9 22C14.16 20.74 18 15.55 18 10V4L9 0ZM16 10C16 14.52 13.02 18.69 9 19.93C4.98 18.69 2 14.52 2 10V5.3L9 2.19L16 5.3V10ZM4.41 10.59L3 12L7 16L15 8L13.59 6.58L7 13.17L4.41 10.59Z"
                             fill="#A8B0B9" />
                     </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Meus Seguros</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Meus Pontos</span>
                 </a>
             </li>
             <li>
@@ -83,32 +97,6 @@
                             fill="#A8B0B9" />
                     </svg>
                     <span class="flex-1 ml-3 whitespace-nowrap">Redes e Grupos</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g opacity="0.9">
-                            <path
-                                d="M19 5V7H15V5H19ZM9 5V11H5V5H9ZM19 13V19H15V13H19ZM9 17V19H5V17H9ZM21 3H13V9H21V3ZM11 3H3V13H11V3ZM21 11H13V21H21V11ZM11 15H3V21H11V15Z"
-                                fill="#A8B0B9" />
-                        </g>
-                    </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap"> Minhas publicações </span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg width="18" height="22" viewBox="0 0 18 22" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 6V18.97L7.79 17.16L7 16.82L6.21 17.16L2 18.97V6H12ZM16 0H5.99C4.89 0 4 0.9 4 2H14C15.1 2 16 2.9 16 4V17L18 18V2C18 0.9 17.1 0 16 0ZM12 4H2C0.9 4 0 4.9 0 6V22L7 19L14 22V6C14 4.9 13.1 4 12 4Z"
-                            fill="#A8B0B9" />
-                    </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap"> Artigos </span>
                 </a>
             </li>
         </ul>

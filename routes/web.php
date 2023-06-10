@@ -21,15 +21,16 @@ Route::get('/', function () {
 });
 
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
- 
+
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::controller(PropertiesController::class)->group(function () {
-    Route::get('/imoveis', 'index');
+    Route::get('/imoveis', 'index')->name('imoveis');
     Route::get('/imovel/{id}', 'show');
     Route::post('/imovel', 'store');
 })->middleware(['auth', 'verified']);
@@ -40,4 +41,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
