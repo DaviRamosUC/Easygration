@@ -28,11 +28,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/rewards', function () {
+    return view('rewards-points');
+})->middleware(['auth', 'verified'])->name('rewards');
 
 Route::controller(PropertiesController::class)->group(function () {
     Route::get('/imoveis', 'index')->name('imoveis');
-    Route::get('/imovel/{id}', 'show');
-    Route::post('/imovel', 'store');
+    Route::get('/meusimoveis', 'showByUser')->name('meusimoveis');
+    Route::get('/cadastrarnovoimovel', 'create')->name('novoimovel');
+    Route::get('/imovel/{id}', 'show')->name('mostrarimovel');
+    Route::post('/imovel', 'store')->name('cadastrarimovel');
 })->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {

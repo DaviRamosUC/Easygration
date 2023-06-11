@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Properties;
 use App\Http\Requests\StorePropertiesRequest;
 use App\Http\Requests\UpdatePropertiesRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PropertiesController extends Controller
 {
@@ -32,8 +33,6 @@ class PropertiesController extends Controller
                     # code...
                     break;
             }
-            if ($propertie->tipo == 'Casa') {
-            }
         }
         return view('properties.index', compact('properties'));
     }
@@ -51,21 +50,38 @@ class PropertiesController extends Controller
      */
     public function store(StorePropertiesRequest $request)
     {
+        $user = Auth::user();
         $imovel = new Properties();
         $imovel->titulo = $request->input('titulo');
         $imovel->tipo = $request->input('tipo');
+        switch ($imovel->tipo) {
+            case 'Casa':
+                $imovel->imagens = 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80';
+                break;
+            case 'Apartamento':
+                $imovel->imagens = 'https://images.unsplash.com/photo-1530966449884-b130ce445fb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                break;
+            case 'Sítio':
+                $imovel->imagens = 'https://images.unsplash.com/photo-1569370029941-4a26ad1acaa0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                break;
+            case 'Kitnet':
+                $imovel->imagens = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=780&q=80';
+                break;
+            default:
+                # code...
+                break;
+        }
         $imovel->endereco = $request->input('endereco');
-        $imovel->imagens = $request->input('imagens');
-        $imovel->proprietario = $request->input('proprietario');
         $imovel->garagem = $request->input('garagem');
         $imovel->valor_condominio = $request->input('valor_condominio');
         $imovel->iptu = $request->input('iptu');
         $imovel->metros_quadrados = $request->input('metros_quadrados');
         $imovel->quantidade_banheiros = $request->input('quantidade_banheiros');
         $imovel->aceita_pets = $request->input('aceita_pets');
+        $imovel->proprietario = $user->id;
         $imovel->save();
 
-        return redirect()->route('properties.index')->with('success', 'Im�vel criado com sucesso!');
+        return redirect()->route('imoveis')->with('success', 'Imóvel criado com sucesso!');
     }
 
     /**
@@ -74,6 +90,31 @@ class PropertiesController extends Controller
     public function show(Properties $properties)
     {
         return view('properties.show', compact('properties'));
+    }
+
+    public function showByUser(){
+        $user = Auth::user();
+        $properties = Properties::where('proprietario_id', $user->id)->get();
+        foreach ($properties as $propertie) {
+            switch ($propertie->tipo) {
+                case 'Casa':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80';
+                    break;
+                case 'Apartamento':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1530966449884-b130ce445fb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                    break;
+                case 'Sítio':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1569370029941-4a26ad1acaa0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                    break;
+                case 'Kitnet':
+                    $propertie->imagens = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=780&q=80';
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
+        return view('properties.properties-by-user', compact('properties'));
     }
 
     /**

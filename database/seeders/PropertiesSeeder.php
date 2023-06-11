@@ -26,6 +26,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 150.00,
                 'quantidade_banheiros' => 2,
                 'aceita_pets' => true,
+                'proprietario_id' => 1,
             ],
             [
                 'titulo' => 'Apartamento moderno',
@@ -39,6 +40,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 80.00,
                 'quantidade_banheiros' => 1,
                 'aceita_pets' => false,
+                'proprietario_id' => 1,
             ],
             [
                 'titulo' => 'Sítio tranquilo',
@@ -52,6 +54,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 1000.00,
                 'quantidade_banheiros' => 3,
                 'aceita_pets' => true,
+                'proprietario_id' => 1,
             ],
             [
                 'titulo' => 'Kitnet no centro',
@@ -65,6 +68,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 40.00,
                 'quantidade_banheiros' => 1,
                 'aceita_pets' => false,
+                'proprietario_id' => 3,
             ],
             [
                 'titulo' => 'Apartamento de luxo',
@@ -78,6 +82,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 120.00,
                 'quantidade_banheiros' => 2,
                 'aceita_pets' => true,
+                'proprietario_id' => 3,
             ],
             [
                 'titulo' => 'Casa de campo',
@@ -91,6 +96,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 200.00,
                 'quantidade_banheiros' => 3,
                 'aceita_pets' => true,
+                'proprietario_id' => 2,
             ],
             [
                 'titulo' => 'Apartamento compacto',
@@ -104,6 +110,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 60.00,
                 'quantidade_banheiros' => 1,
                 'aceita_pets' => false,
+                'proprietario_id' => 3,
             ],
             [
                 'titulo' => 'Chalé aconchegante',
@@ -117,6 +124,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 80.00,
                 'quantidade_banheiros' => 2,
                 'aceita_pets' => true,
+                'proprietario_id' => 2,
             ],
             [
                 'titulo' => 'Apartamento térreo',
@@ -130,6 +138,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 90.00,
                 'quantidade_banheiros' => 1,
                 'aceita_pets' => true,
+                'proprietario_id' => 3,
             ],
             [
                 'titulo' => 'Cobertura com vista',
@@ -143,6 +152,7 @@ class PropertiesSeeder extends Seeder
                 'metros_quadrados' => 150.00,
                 'quantidade_banheiros' => 2,
                 'aceita_pets' => true,
+                'proprietario_id' => 2,
             ],
         ];
 
@@ -159,6 +169,7 @@ class PropertiesSeeder extends Seeder
             $imovel->metros_quadrados = $imovelData['metros_quadrados'];
             $imovel->quantidade_banheiros = $imovelData['quantidade_banheiros'];
             $imovel->aceita_pets = $imovelData['aceita_pets'];
+            $imovel->proprietario_id = $imovelData['proprietario_id'];
             $imovel->save();
         }
     }

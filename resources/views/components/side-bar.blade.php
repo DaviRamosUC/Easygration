@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ route('meusimoveis') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('imoveis') }}"
+                <a href="{{ route('rewards') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <svg width="18" height="22" viewBox="0 0 18 22" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -103,7 +103,7 @@
 
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="#"
+                <a href="{{ route('profile.edit') }}"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
