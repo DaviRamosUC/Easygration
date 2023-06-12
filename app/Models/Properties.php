@@ -22,4 +22,9 @@ class Properties extends Model
         'quantidade_banheiro',
         'aceita_pets',
     ];
+
+    public function reward()
+    {
+        return $this->hasOne(Reward::class);
+    }
 }

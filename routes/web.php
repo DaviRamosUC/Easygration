@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RewardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,26 +25,30 @@ Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect'])
 
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/rewards', function () {
-    return view('rewards-points');
-})->middleware(['auth', 'verified'])->name('rewards');
-
-Route::controller(PropertiesController::class)->group(function () {
-    Route::get('/imoveis', 'index')->name('imoveis');
-    Route::get('/meusimoveis', 'showByUser')->name('meusimoveis');
-    Route::get('/cadastrarnovoimovel', 'create')->name('novoimovel');
-    Route::get('/imovel/{id}', 'show')->name('mostrarimovel');
-    Route::post('/imovel', 'store')->name('cadastrarimovel');
-})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    
+    Route::controller(RewardController::class)->group(function () {
+        Route::get('/rewards', 'index')->name('rewards');
+        
+    });
+
+    Route::controller(PropertiesController::class)->group(function () {
+        Route::get('/imoveis', 'index')->name('imoveis');
+        Route::get('/meusimoveis', 'showByUser')->name('meusimoveis');
+        Route::get('/cadastrarnovoimovel', 'create')->name('novoimovel');
+        Route::get('/imovel/{id}', 'show')->name('mostrarimovel');
+        Route::post('/imovel', 'store')->name('cadastrarimovel');
+    });
 });
 
 require __DIR__ . '/auth.php';

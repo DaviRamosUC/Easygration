@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Properties;
 use App\Http\Requests\StorePropertiesRequest;
 use App\Http\Requests\UpdatePropertiesRequest;
+use App\Models\Reward;
 use Illuminate\Support\Facades\Auth;
 
 class PropertiesController extends Controller
@@ -50,6 +51,7 @@ class PropertiesController extends Controller
      */
     public function store(StorePropertiesRequest $request)
     {
+        $points = 10;
         $user = Auth::user();
         $imovel = new Properties();
         $imovel->titulo = $request->input('titulo');
@@ -57,15 +59,19 @@ class PropertiesController extends Controller
         switch ($imovel->tipo) {
             case 'Casa':
                 $imovel->imagens = 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80';
+                $points *= 1;
                 break;
             case 'Apartamento':
                 $imovel->imagens = 'https://images.unsplash.com/photo-1530966449884-b130ce445fb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                $points *= 1;
                 break;
             case 'Sítio':
                 $imovel->imagens = 'https://images.unsplash.com/photo-1569370029941-4a26ad1acaa0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80';
+                $points *= 3;
                 break;
             case 'Kitnet':
                 $imovel->imagens = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=780&q=80';
+                $points *= 5;
                 break;
             default:
                 # code...
@@ -81,6 +87,13 @@ class PropertiesController extends Controller
         $imovel->proprietario = $user->id;
         $imovel->save();
 
+        $pontos = [
+            'user_id' => $user->id,
+            'propertie_id' => $imovel->id,
+            'points' => $points
+        ];
+        Reward::create($pontos);
+
         return redirect()->route('imoveis')->with('success', 'Imóvel criado com sucesso!');
     }
 
@@ -92,7 +105,8 @@ class PropertiesController extends Controller
         return view('properties.show', compact('properties'));
     }
 
-    public function showByUser(){
+    public function showByUser()
+    {
         $user = Auth::user();
         $properties = Properties::where('proprietario_id', $user->id)->get();
         foreach ($properties as $propertie) {
