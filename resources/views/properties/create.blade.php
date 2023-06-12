@@ -85,8 +85,8 @@
                             <select id="aceita_pets" name="aceita_pets"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option>Selecione o valor</option>
-                                <option value="true">Sim</option>
-                                <option value="false">Não</option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
                             </select>
                         </div>
                         <div>
@@ -96,8 +96,8 @@
                             <select id="garagem" name="garagem"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option>Selecione o valor</option>
-                                <option value="true">Sim</option>
-                                <option value="false">Não</option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
                             </select>
                         </div>
                         <div class="sm:col-span-2">
